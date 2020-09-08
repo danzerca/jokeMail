@@ -1,13 +1,14 @@
-import express from 'express';
+const express = require('express');
 const app = express();
 const port = 8080;
 
+app.use(express.static(__dirname + '/../client/dist'));
+
 app.get('/', (req, res) => {
-  res.send('Hello, beautiful world!')
+  // res.sendFile(path.join(__dirname + '/../client/dist'));
 });
 
 
 app.listen(port, () => {
-  // tslint:disable-next-line:no-console
   console.log(`server listening at http://localhost:${ port }`);
 });
